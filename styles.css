@@ -1,9 +1,9 @@
 body {
-	font: bold 11px/1.5em Verdana;
+	font-family: "Yumincho", serif;
 	}
 
 h1 {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-family: "Yumincho", serif;
 	font-size:16px;
 	font-weight:bold;
 	margin:0;
@@ -68,3 +68,12 @@ hr {
 #tabs a:hover span {
 	background-position:100% -42px;
 	}
+
+select {
+	width: 100%;
+	padding: 16px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+	}
+	  
