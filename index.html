@@ -1,35 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<title>YuruYuriFans.githu</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="styles.css" type="text/css" />
+  <meta charset="UTF-8">
+  <title>RPS Skill Battle</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { margin: 5px; padding: 8px 14px; }
+    .section { margin-bottom: 18px; }
+  </style>
 </head>
-<body>
-<h1>Welcome to <ul>YuruYuriFans.github.io</ul></h1>
-<hr />
-<div id="tabs">
-  <ul>
-    <li><a href="1.html"><span>1</span></a></li>
-    <li><a href=""><span>2</span></a></li>
-    <li><a href=""><span>3</span></a></li>
-    <li><a href=""><span>4</span></a></li>
-    <li><a href=""><span>5</span></a></li>
-    <li><a href=""><span>6</span></a></li>
-    <li><a rel="nofollow" target="_blank" href="index.html" title="7"><span>Homepage</span></a></li>
-  </ul>
-</div>
-<!--Copy and paste -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GPhUhnkjo-w?si=xWsGDW-2OsUFnBqF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<br>
-Something in the paragraph.
 
-<form>
-  <select id="language" name="A/文">
-  <option value="en">English</option>
-  <option value="ca">日本語</option>
-  <option value="usa">As you might have seen, these options make no difference whatsoever.</option>
-  </select>
-</form>
+<body>
+  <h2>Round-based RPS Skill Battle</h2>
+
+  <div id="status" class="section"></div>
+
+  <div class="section">
+    <h3>Choose Rock / Paper / Scissors</h3>
+    <button onclick="game.playerChoose('rock')">Rock</button>
+    <button onclick="game.playerChoose('paper')">Paper</button>
+    <button onclick="game.playerChoose('scissors')">Scissors</button>
+  </div>
+
+  <div id="skillSection" class="section" style="display:none;">
+    <h3>Your Skills</h3>
+    <button onclick="game.useSkill(0)">Skill 0 (1 dmg)</button>
+    <button onclick="game.useSkill(1)">Skill 1 (4 dmg, cd1)</button>
+    <button onclick="game.useSkill(2)">Skill 2 (+5 HP, cd2)</button>
+    <button onclick="game.useSkill(3)">Skill 3 (none)</button>
+  </div>
+
+  <script src="game.js"></script>
 </body>
 </html>
