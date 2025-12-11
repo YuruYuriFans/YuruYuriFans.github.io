@@ -1,35 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>RPS Skill Battle</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    button { margin: 5px; padding: 8px 14px; }
-    .section { margin-bottom: 18px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVE Round-Based Battle</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <h2>Round-based RPS Skill Battle</h2>
-
-  <div id="status" class="section"></div>
-
-  <div class="section">
-    <h3>Choose Rock / Paper / Scissors</h3>
-    <button onclick="game.playerChoose('rock')">Rock</button>
-    <button onclick="game.playerChoose('paper')">Paper</button>
-    <button onclick="game.playerChoose('scissors')">Scissors</button>
-  </div>
-
-  <div id="skillSection" class="section" style="display:none;">
-    <h3>Your Skills</h3>
-    <button onclick="game.useSkill(0)">Skill 0 (1 dmg)</button>
-    <button onclick="game.useSkill(1)">Skill 1 (4 dmg, cd1)</button>
-    <button onclick="game.useSkill(2)">Skill 2 (+5 HP, cd2)</button>
-    <button onclick="game.useSkill(3)">Skill 3 (none)</button>
-  </div>
-
-  <script src="game.js"></script>
+    <div class="container">
+        <h1>PVE ROUND-BASED BATTLE</h1>
+        
+        <div class="setup-screen" id="setupScreen">
+            <h2 style="margin-bottom: 20px;">SELECT YOUR CHARACTER</h2>
+            <div class="character-grid" id="characterGrid"></div>
+            
+            <div class="passive-select hidden" id="passiveSelect">
+                <h3 style="margin-bottom: 15px;">SELECT PASSIVE SKILL</h3>
+                <div id="passiveOptions"></div>
+            </div>
+            
+            <div class="faction-select">
+                <h3 style="width: 100%; text-align: center; margin-bottom: 15px;">SELECT FACTION</h3>
+                <button class="faction-btn" data-faction="1">FACTION 1</button>
+                <button class="faction-btn" data-faction="2">FACTION 2</button>
+            </div>
+            
+            <button class="start-btn" id="startBtn" disabled>START GAME</button>
+        </div>
+        
+        <div class="game-screen" id="gameScreen">
+            <div class="game-container">
+                <div class="opponents-area">
+                    <div class="opponents-grid" id="opponentsGrid"></div>
+                </div>
+                
+                <div class="player-area">
+                    <div class="player-info" id="playerInfo"></div>
+                    <div class="player-actions">
+                        <div class="player-skills">
+                            <div class="phase-indicator" id="phaseIndicator">Waiting...</div>
+                            <div class="skills-grid" id="skillsGrid"></div>
+                        </div>
+                        <div class="combat-log-area" id="combatLog"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rps-modal hidden" id="rpsModal">
+            <div class="rps-content">
+                <h2>ROCK PAPER SCISSORS</h2>
+                <p style="color: #888;">Make your choice!</p>
+                <div class="rps-buttons">
+                    <button class="rps-btn" data-choice="rock">ROCK</button>
+                    <button class="rps-btn" data-choice="paper">PAPER</button>
+                    <button class="rps-btn" data-choice="scissors">SCISSORS</button>
+                </div>
+                <div class="rps-waiting hidden" id="rpsWaiting">Waiting for other players...</div>
+                <div class="rps-results hidden" id="rpsResults"></div>
+            </div>
+        </div>
+        
+        <div class="target-modal hidden" id="targetModal">
+            <div class="target-content">
+                <h2 style="margin-bottom: 20px; color: #4a9eff;">SELECT TARGET(S)</h2>
+                <div class="target-grid" id="targetGrid"></div>
+                <button class="confirm-btn" id="confirmTargetBtn">CONFIRM</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="character_pool.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
